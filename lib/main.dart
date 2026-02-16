@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,16 +23,23 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
         ),
         body: Center(
-          child: FractionallySizedBox(
-            widthFactor: 1,
-            // child: Container(height: 100, color: Colors.black),
-            child: CustomPaint(
-              size: Size(MediaQuery.of(context).size.width, 70),
-              painter: NotchedPainter(),
-            ),
+          child: CustomPaint(
+            size: Size(MediaQuery.of(context).size.width, 70),
+            painter: NotchedPainter(),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          shape: CircleBorder(),
+          onPressed: () {},
+          backgroundColor: Colors.black,
+          child: FaIcon(FontAwesomeIcons.plus, color: Colors.white),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         // bottomNavigationBar: CustomNotchedBottomNavigationBar(),
+        bottomNavigationBar: CustomPaint(
+          size: Size(MediaQuery.of(context).size.width, 70),
+          painter: NotchedPainter(),
+        ),
       ),
     );
   }
@@ -62,7 +70,7 @@ class NotchedPainter extends CustomPainter {
       0,
       // 두번째 제어점
       centerX - 30,
-      0 - 19,
+      0 - 18,
       // 끝점
       centerX,
       0 - notchHeight,
@@ -70,7 +78,7 @@ class NotchedPainter extends CustomPainter {
 
     path.cubicTo(
       centerX + 30,
-      0 - 19,
+      0 - 18,
       centerX + 20,
       0,
       //끝점,
